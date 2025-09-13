@@ -1,5 +1,5 @@
 
-# 🗺️ Semantic Segmentation with PyTorch & SMP
+# 🗺️ Getting Started with Semantic Segmentation in PyTorch Using SMP
 
 ## SIBGRAPI 2025 - Bahia/BA 🌴
 
