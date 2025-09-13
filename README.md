@@ -245,4 +245,4 @@ X. Shi, S. Fu, J. Chen, F. Wang, and F. Xu, “Object-level semantic segmentatio
 ## 📄 License
 MIT License
 
-#### Last update: September 13, 2025
+##### *Last update: September 13, 2025*
