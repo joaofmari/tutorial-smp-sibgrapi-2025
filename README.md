@@ -154,9 +154,9 @@ To reproduce the exact results reported in the paper, run the following command 
 ```bash
 python train-test.py --dataset deepglobe --n_classes 7 --in_channels 3 --h_size 512 --w_size 512 --model Unet --backbone resnet50 --loss crossentropy -- --da_train none --max_epochs 400 --batch_size 8 --lr 0.0001 --scheduler plateau --save_images --segmap_mode darker --ec 0
 
-python train-test.py --dataset deepglobe --n_classes 7 --in_channels 3 --h_size 512 --w_size 512 --model FPN --backbone resnet50 --loss dice -- --da_train none --max_epochs 400 --batch_size 8 --lr 0.0001 --scheduler plateau --save_images --segmap_mode darker --ec 1
-
 python train-test.py --dataset deepglobe --n_classes 7 --in_channels 3 --h_size 512 --w_size 512 --model Unet --backbone efficientnet-b2 --loss crossentropy -- --da_train none --max_epochs 400 --batch_size 8 --lr 0.0001 --scheduler plateau --save_images --segmap_mode darker --ec 2
+
+python train-test.py --dataset deepglobe --n_classes 7 --in_channels 3 --h_size 512 --w_size 512 --model FPN --backbone resnet50 --loss dice -- --da_train none --max_epochs 400 --batch_size 8 --lr 0.0001 --scheduler plateau --save_images --segmap_mode darker --ec 1
 
 python train-test.py --dataset deepglobe --n_classes 7 --in_channels 3 --h_size 512 --w_size 512 --model FPN --backbone efficientnet-b2 --loss dice -- --da_train none --max_epochs 400 --batch_size 8 --lr 0.0001 --scheduler plateau --save_images --segmap_mode darker --ec 3
 ```
