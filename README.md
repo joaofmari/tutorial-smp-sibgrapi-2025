@@ -1,7 +1,7 @@
 
 # 🗺️ Getting Started with Semantic Segmentation in PyTorch Using SMP
 
-## SIBGRAPI 2025 - Bahia/BA 🌴
+## SIBGRAPI 2025 - Salvador/BA 🌴
 
 
 ## 🤝 Authors
@@ -154,11 +154,11 @@ To reproduce the exact results reported in the paper, run the following command 
 ```bash
 python train-test.py --dataset deepglobe --n_classes 7 --in_channels 3 --h_size 512 --w_size 512 --model Unet --backbone resnet50 --loss crossentropy -- --da_train none --max_epochs 400 --batch_size 8 --lr 0.0001 --scheduler plateau --save_images --segmap_mode darker --ec 0
 
-python train-test.py --dataset deepglobe --n_classes 7 --in_channels 3 --h_size 512 --w_size 512 --model Unet --backbone resnet50 --loss dice -- --da_train none --max_epochs 400 --batch_size 8 --lr 0.0001 --scheduler plateau --save_images --segmap_mode darker --ec 1
+python train-test.py --dataset deepglobe --n_classes 7 --in_channels 3 --h_size 512 --w_size 512 --model FPN --backbone resnet50 --loss dice -- --da_train none --max_epochs 400 --batch_size 8 --lr 0.0001 --scheduler plateau --save_images --segmap_mode darker --ec 1
 
 python train-test.py --dataset deepglobe --n_classes 7 --in_channels 3 --h_size 512 --w_size 512 --model Unet --backbone efficientnet-b2 --loss crossentropy -- --da_train none --max_epochs 400 --batch_size 8 --lr 0.0001 --scheduler plateau --save_images --segmap_mode darker --ec 2
 
-python train-test.py --dataset deepglobe --n_classes 7 --in_channels 3 --h_size 512 --w_size 512 --model Unet --backbone efficientnet-b2 --loss dice -- --da_train none --max_epochs 400 --batch_size 8 --lr 0.0001 --scheduler plateau --save_images --segmap_mode darker --ec 3
+python train-test.py --dataset deepglobe --n_classes 7 --in_channels 3 --h_size 512 --w_size 512 --model FPN --backbone efficientnet-b2 --loss dice -- --da_train none --max_epochs 400 --batch_size 8 --lr 0.0001 --scheduler plateau --save_images --segmap_mode darker --ec 3
 ```
 
 #### 38-Cloud Dataset:
@@ -167,9 +167,9 @@ python train-test.py --dataset 38-cloud --n_classes 2 --in_channels 4 --h_size 3
 
 python train-test.py --dataset 38-cloud --n_classes 2 --in_channels 4 --h_size 384 --w_size 384 --model Unet --backbone efficientnet-b2 --loss dice -- --da_train none --max_epochs 400 --batch_size 8 --lr 0.0001 --scheduler plateau --save_images  --ec 0
 
-python train-test.py --dataset 38-cloud --n_classes 2 --in_channels 4 --h_size 384 --w_size 384 --model Unet --backbone resnet50 --loss crossentropy -- --da_train none --max_epochs 400 --batch_size 8 --lr 0.0001 --scheduler plateau --save_images  --ec 0
+python train-test.py --dataset 38-cloud --n_classes 2 --in_channels 4 --h_size 384 --w_size 384 --model FPN --backbone resnet50 --loss crossentropy -- --da_train none --max_epochs 400 --batch_size 8 --lr 0.0001 --scheduler plateau --save_images  --ec 0
 
-python train-test.py --dataset 38-cloud --n_classes 2 --in_channels 4 --h_size 384 --w_size 384 --model Unet --backbone efficientnet-b2 --loss dice -- --da_train none --max_epochs 400 --batch_size 8 --lr 0.0001 --scheduler plateau --save_images --ec 0
+python train-test.py --dataset 38-cloud --n_classes 2 --in_channels 4 --h_size 384 --w_size 384 --model FPN --backbone efficientnet-b2 --loss dice -- --da_train none --max_epochs 400 --batch_size 8 --lr 0.0001 --scheduler plateau --save_images --ec 0
 ```
 
 To achieve the same results with the 38-Cloud dataset, run ```preprocess_28-cloud.ipynb``` to remove all-black images (i.e., images where all pixels = 0).
@@ -180,9 +180,9 @@ python train-test.py --dataset FUSAR-Map --n_classes 5 --in_channels 1 --h_size 
 
 python train-test.py --dataset FUSAR-Map --n_classes 5 --in_channels 1 --h_size 512 --w_size 512 --model Unet --backbone efficientnet-b2 --loss dice -- --da_train none --max_epochs 400 --batch_size 8 --lr 0.0001 --scheduler plateau --save_images --segmap_mode darker --ec 0
 
-python train-test.py --dataset FUSAR-Map --n_classes 5 --in_channels 1 --h_size 512 --w_size 512 --model Unet --backbone resnet50 --loss crossentropy -- --da_train none --max_epochs 400 --batch_size 8 --lr 0.0001 --scheduler plateau --save_images --segmap_mode darker --ec 0
+python train-test.py --dataset FUSAR-Map --n_classes 5 --in_channels 1 --h_size 512 --w_size 512 --model FPN --backbone resnet50 --loss crossentropy -- --da_train none --max_epochs 400 --batch_size 8 --lr 0.0001 --scheduler plateau --save_images --segmap_mode darker --ec 0
 
-python train-test.py --dataset FUSAR-Map --n_classes 5 --in_channels 1 --h_size 512 --w_size 512 --model Unet --backbone efficientnet-b2 --loss dice -- --da_train none --max_epochs 400 --batch_size 8 --lr 0.0001 --scheduler plateau --save_images --segmap_mode darker --ec 0
+python train-test.py --dataset FUSAR-Map --n_classes 5 --in_channels 1 --h_size 512 --w_size 512 --model FPN --backbone efficientnet-b2 --loss dice -- --da_train none --max_epochs 400 --batch_size 8 --lr 0.0001 --scheduler plateau --save_images --segmap_mode darker --ec 0
 ```
 
 ## Batch Training
@@ -206,10 +206,11 @@ python train-test.py --dataset FUSAR-Map --n_classes 5 --in_channels 1 --h_size 
 ⚠️ *Slides will be available soon.*
 
 ## 📄 Paper
-- SIBGRAPI Digital Library Archive – SDLA:
-[http://sibgrapi.sid.inpe.br/col/sid.inpe.br/sibgrapi/2025/09.12.19.17/doc/thisInformationItemHomePage.html](http://sibgrapi.sid.inpe.br/col/sid.inpe.br/sibgrapi/2025/09.12.19.17/doc/thisInformationItemHomePage.html)
 - IEEE Xplore:
   - ⚠️ *Paper will be available soon.*
+- SIBGRAPI Digital Library Archive – SDLA:
+[http://sibgrapi.sid.inpe.br/col/sid.inpe.br/sibgrapi/2025/09.12.19.17/doc/thisInformationItemHomePage.html](http://sibgrapi.sid.inpe.br/col/sid.inpe.br/sibgrapi/2025/09.12.19.17/doc/thisInformationItemHomePage.html)
+
 
 ## ✍️ How to Cite
 If this tutorial was usefull in your work, use the reference for our paper:
