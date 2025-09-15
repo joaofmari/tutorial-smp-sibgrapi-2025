@@ -1,7 +1,7 @@
 # %% [markdown]
 # # 🗺️ Tutorial: Getting Started with Semantic Segmentation using PyTorch & SMP
 # 
-# ## SIBGRAPI 2025 - Bahia/BA 🌴
+# ## SIBGRAPI 2025 - Salvador/BA 🌴
 # 
 # **Authors:**
 # 
@@ -592,6 +592,16 @@ with open(os.path.join(EXP_PATH, 'model.txt'), 'w') as model_file:
 MEAN = [0.485, 0.456, 0.406]
 STD = [0.229, 0.224, 0.225]
 
+# For other Pretrained Weights, use the preprocessing function provided by SMP, or the provided mean and std values.
+# ------
+# SSL, SWSL and Instagram are the same as ImageNet.
+# ImageNet+5k
+### MEAN = [0.48627450980392156, 0.4588235294117647, 0.40784313725490196]
+### STD = [0.23482446870963955, 0.23482446870963955, 0.23482446870963955]
+# ImageNet+Background and AdvPRop
+### MEAN = [0.5, 0.5, 0.5]
+### STD = [0.5, 0.5, 0.5]
+
 # %% [markdown]
 # ### 📊 Compute Per-Channel Stats for Multispectral Images
 
@@ -733,7 +743,7 @@ def get_da(strategy='none',
             t += [A.CLAHE(clip_limit=4.0, p=0.4)]
         t += [A.Resize(args.h_size, args.w_size)]
 
-    # Apply preprocessing — either SMP preprocessing_fn or standard normalization
+    # Apply preprocessing: either SMP preprocessing_fn or standard normalization
     if preprocessing_fn is not None:
         print('Appliyng SMP preprocessing_fn...')
         t.append(A.Lambda(image=preprocessing_fn))
@@ -877,7 +887,7 @@ if args.in_channels > 3:
     mean_ds, std_ds = compute_mean_std(train_dataset)
     ### print(mean_ds, std_ds)
 
-    # Add stats from the 
+    # Merge pretraining stats with dataset-specific stats
     MEAN = MEAN + mean_ds[3:]
     STD = STD + std_ds[3:]
 
@@ -1084,7 +1094,6 @@ def save_sample_visualization(ds, train_path, exp_path, file_list=None, idx=100)
     ### plt.close(fig)
 
 # For '38-cloud', pass the list of training filenames (required for loading multi-band images).
-### file_list = train_paths if args.dataset_name == '38-cloud' else None
 if args.dataset_name == '38-cloud':
     file_list = train_paths
 elif args.dataset_name == 'FUSAR-Map':
@@ -1275,11 +1284,11 @@ def fit(epochs, model, train_loader, val_loader, criterion, optimizer, scheduler
             # Binary mode. Mask should be (B, 1, H, W) with dtype float.
             if mask.ndim == 3: # if (B, H, W) -> (B, 1, H, W)
                 mask = mask.unsqueeze(1) 
-            mask = mask.float() # Ensure dtype if float.
+            mask = mask.float() # Ensure dtype if float. Needed for some losses (e.g., BCE)
         else: 
             # Multiclass mode. Mask should be (B, H, W) with dtype long.
             if mask.ndim == 4: # if (B, C, H, W) -> Warning. Some issue when loading and preprocessing the mask.
-                print(f'WARNING: Mask shape {mask.shape} is not expected for multiclass loss. Reshaping to (B, H, W).')
+                print(f'WARNING: Mask shape {mask.shape} is not expected for multiclass loss.')
             mask = mask.long() # Ensure dtype is long.
 
         return mask
@@ -1583,6 +1592,7 @@ best_epoch = history['best_epoch']
 model.save_pretrained(os.path.join(EXP_PATH, 'best_model_SMP'))
 
 # Load the model from the local directory
+# --------------------------------------------
 ### model = smp.from_pretrained(os.path.join(EXP_PATH, 'best_model_SMP'))
 
 # %% [markdown]
