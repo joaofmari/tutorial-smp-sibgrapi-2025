@@ -185,6 +185,11 @@ python train-test.py --dataset FUSAR-Map --n_classes 5 --in_channels 1 --h_size 
 python train-test.py --dataset FUSAR-Map --n_classes 5 --in_channels 1 --h_size 512 --w_size 512 --model FPN --backbone efficientnet-b2 --loss dice -- --da_train none --max_epochs 400 --batch_size 8 --lr 0.0001 --scheduler plateau --save_images --segmap_mode darker --ec 0
 ```
 
+## 🚀 Google Colab Version
+- We provide a ready-to-use version of the code on Google Colab, which offers free GPU support for faster training and experimentation.
+[Google Colab Folder](https://drive.google.com/drive/folders/1ZJ8Ax16QEoaAOniNk4rqr7I6208hhsZ4?usp=drive_link)
+
+
 ## Batch Training
 - We also provided a spript to run a batch (```run-batch.py```) of structutred exeriments.
 - One can combine diverse models, encoderes, lerning rates, batch sizes, data augmenation strategies, and run a number of exeperiments.
@@ -219,11 +224,22 @@ If this tutorial was usefull in your work, use the reference for our paper:
 
 ```
 
+## 🙏 Acknowledgements
+
+- CNPq
+- FAPEMIG
+- CAPES
+- NVIDIA®
+- UFV - Rio Paranaíba
+- UFV - Rio Paranaíba - Diretoria de Pesquisa e Pós-Graduação
+
+![](assets/acknowledgements.png)
+
 ## 📚 References
 
 ### Segmentation Models PyTorch (SMP):
 
-P. Iakubovskii, “Segmentation models pytorch,” https://github.com/qubvel/segmentation models.pytorch, 2019.
+P. Iakubovskii, “Segmentation models pytorch,” [https://github.com/qubvel/segmentation models.pytorch](https://github.com/qubvel-org/segmentation_models.pytorch), 2019.
 
 ### Albumentations:
 
@@ -246,4 +262,4 @@ X. Shi, S. Fu, J. Chen, F. Wang, and F. Xu, “Object-level semantic segmentatio
 ## 📄 License
 MIT License
 
-##### *Last update: September 13, 2025*
+##### *Last update: September 17, 2025*
