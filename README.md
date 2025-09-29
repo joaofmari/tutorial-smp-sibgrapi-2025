@@ -208,7 +208,7 @@ python train-test.py --dataset FUSAR-Map --n_classes 5 --in_channels 1 --h_size 
 - Image-wise and overall aggregated metrics reports
 
 ## 🎤 Slides Presentation
-[Slides](2025.Tutorial.SMP.SIBGRAPI.Slides.pdf)
+[📊 Slides](2025.Tutorial.SMP.SIBGRAPI.Slides.pdf)
 
 ## 📄 Paper
 - IEEE Xplore:
