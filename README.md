@@ -105,11 +105,11 @@ For this tutorial, all datasets should be stored inside a directory named `Datas
 ~/
 └── Datasets/
     └── DeepGlobe/
-        |   ├── test/
-        |   ├── train/
-        |   ├── valid/
-        |   ├── class_dict.csv
-        |   ├── metadata.csv
+        ├── test/
+        ├── train/
+        ├── valid/
+        ├── class_dict.csv
+        ├── metadata.csv
         └── archive.zip
 ```
 
@@ -208,7 +208,7 @@ python train-test.py --dataset FUSAR-Map --n_classes 5 --in_channels 1 --h_size 
 - Image-wise and overall aggregated metrics reports
 
 ## 🎤 Slides Presentation
-⚠️ *Slides will be available soon.*
+[Slides](2025.Tutorial.SMP.SIBGRAPI.Slides.pdf)
 
 ## 📄 Paper
 - IEEE Xplore:
@@ -262,4 +262,4 @@ X. Shi, S. Fu, J. Chen, F. Wang, and F. Xu, “Object-level semantic segmentatio
 ## 📄 License
 MIT License
 
-##### *Last update: September 17, 2025*
+##### *Last update: September 29, 2025*

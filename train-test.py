@@ -757,6 +757,7 @@ def get_da(strategy='none',
     # Print the transformations
     ### print(*t, sep='\n')
 
+    # Fix Albumentations random seed to ensure reproducible augmentations
     t = A.Compose(t, seed=seed)
 
     return t
@@ -1066,7 +1067,6 @@ def save_sample_visualization(ds, train_path, exp_path, file_list=None, idx=100)
 
         # Load grayscale image and mask
         img_rgb = np.array(Image.open(os.path.join(train_path, 'SAR_1024', image_list[idx])).convert("L"))  # (H, W), grayscale
-        ### mask = np.array(Image.open(mask_path).convert("L"))  # (H, W), binary mask
         mask = np.array(Image.open(os.path.join(train_path, 'LAB_1024', mask_list[idx])).convert("RGB"))  # Read mask as RGB
    
     # Show info
