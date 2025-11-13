@@ -212,7 +212,7 @@ python train-test.py --dataset FUSAR-Map --n_classes 5 --in_channels 1 --h_size 
 
 ## 📄 Paper
 - IEEE Xplore:
-  - ⚠️ *Paper will be available soon.*
+[https://ieeexplore.ieee.org/document/11223385](https://ieeexplore.ieee.org/document/11223385)
 - SIBGRAPI Digital Library Archive – SDLA:
 [http://sibgrapi.sid.inpe.br/col/sid.inpe.br/sibgrapi/2025/09.12.19.17/doc/thisInformationItemHomePage.html](http://sibgrapi.sid.inpe.br/col/sid.inpe.br/sibgrapi/2025/09.12.19.17/doc/thisInformationItemHomePage.html)
 
@@ -220,8 +220,15 @@ python train-test.py --dataset FUSAR-Map --n_classes 5 --in_channels 1 --h_size 
 ## ✍️ How to Cite
 If this tutorial was usefull in your work, use the reference for our paper:
 ```
-⚠️ *Reference will be available soon.*
-
+@INPROCEEDINGS{mari2025getting,
+  author={Mari, João Fernando and Silva, Leandro Henrique Furtado Pinto and Escarpinati, Mauricio Cunha and Backes, André Ricardo},
+  booktitle={2025 38th SIBGRAPI Conference on Graphics, Patterns and Images (SIBGRAPI)}, 
+  title={Getting Started with Semantic Segmentation in PyTorch Using SMP}, 
+  year={2025},
+  volume={},
+  number={},
+  pages={1-6},
+  doi={10.1109/SIBGRAPI67909.2025.11223385}}
 ```
 
 ## 🙏 Acknowledgements
